@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://p6oa85byvbnw"]
+
+[node name="IncrementalGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 1012.0
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+text = "arstaiorsnteiaonriestnaoiresntoiearnst"
+
+[node name="Label2" type="Label" parent="HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+text = "arstoanrsteioanrseitnaeirsnt"
