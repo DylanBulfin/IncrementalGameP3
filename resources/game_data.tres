@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=15 format=3 uid="uid://hd4ps85k4fx5"]
+
+[ext_resource type="Script" uid="uid://bskj18fydavuw" path="res://resources/entities/facility.gd" id="1_yqm58"]
+[ext_resource type="Script" uid="uid://quo18bf08mye" path="res://resources/entities/material.gd" id="2_rolb0"]
+[ext_resource type="Script" uid="uid://b3526uyrv3j5s" path="res://resources/game_data.gd" id="3_raoho"]
+[ext_resource type="Script" uid="uid://dvq252w1v2qpw" path="res://resources/entities/screen.gd" id="3_rolb0"]
+[ext_resource type="Script" uid="uid://cuvkauqs58q0v" path="res://resources/entities/upgrade.gd" id="4_2r4qd"]
+
+[sub_resource type="Resource" id="Resource_rolb0"]
+script = ExtResource("1_yqm58")
+title = "Dirt Mine"
+base_cost = 0.0
+base_output = 0.0
+cost_ratio = 0.0
+count = 0
+tens_multi = 2.0
+hundreds_multi = 20.0
+metadata/_custom_type_script = "uid://bskj18fydavuw"
+
+[sub_resource type="Resource" id="Resource_yqm58"]
+script = ExtResource("1_yqm58")
+title = "Stone Mine"
+base_cost = 0.0
+base_output = 0.0
+cost_ratio = 0.0
+count = 0
+tens_multi = 2.0
+hundreds_multi = 20.0
+metadata/_custom_type_script = "uid://bskj18fydavuw"
+
+[sub_resource type="Resource" id="Resource_raoho"]
+script = ExtResource("1_yqm58")
+title = "Copper Mine"
+base_cost = 0.0
+base_output = 0.0
+cost_ratio = 0.0
+count = 0
+tens_multi = 2.0
+hundreds_multi = 20.0
+metadata/_custom_type_script = "uid://bskj18fydavuw"
+
+[sub_resource type="Resource" id="Resource_2r4qd"]
+script = ExtResource("1_yqm58")
+title = "Iron Mine"
+base_cost = 0.0
+base_output = 0.0
+cost_ratio = 0.0
+count = 0
+tens_multi = 2.0
+hundreds_multi = 20.0
+metadata/_custom_type_script = "uid://bskj18fydavuw"
+
+[sub_resource type="Resource" id="Resource_4oi1i"]
+script = ExtResource("1_yqm58")
+title = "Silver Mine"
+base_cost = 0.0
+base_output = 0.0
+cost_ratio = 0.0
+count = 0
+tens_multi = 2.0
+hundreds_multi = 20.0
+metadata/_custom_type_script = "uid://bskj18fydavuw"
+
+[sub_resource type="Resource" id="Resource_e1k00"]
+script = ExtResource("1_yqm58")
+title = "Gold Mine"
+base_cost = 0.0
+base_output = 0.0
+cost_ratio = 0.0
+count = 0
+tens_multi = 2.0
+hundreds_multi = 20.0
+metadata/_custom_type_script = "uid://bskj18fydavuw"
+
+[sub_resource type="Resource" id="Resource_vt7lq"]
+script = ExtResource("1_yqm58")
+title = "Platinum Mine"
+base_cost = 0.0
+base_output = 0.0
+cost_ratio = 0.0
+count = 0
+tens_multi = 2.0
+hundreds_multi = 20.0
+metadata/_custom_type_script = "uid://bskj18fydavuw"
+
+[sub_resource type="Resource" id="Resource_ws21c"]
+script = ExtResource("1_yqm58")
+title = "Diamond Mine"
+base_cost = 0.0
+base_output = 0.0
+cost_ratio = 0.0
+count = 0
+tens_multi = 2.0
+hundreds_multi = 20.0
+metadata/_custom_type_script = "uid://bskj18fydavuw"
+
+[sub_resource type="Resource" id="Resource_j2wbb"]
+script = ExtResource("3_rolb0")
+title = "Facilities"
+scene_path = "facility_screen"
+metadata/_custom_type_script = "uid://dvq252w1v2qpw"
+
+[resource]
+script = ExtResource("3_raoho")
+facilities = Array[ExtResource("1_yqm58")]([SubResource("Resource_rolb0"), SubResource("Resource_yqm58"), SubResource("Resource_raoho"), SubResource("Resource_2r4qd"), SubResource("Resource_4oi1i"), SubResource("Resource_e1k00"), SubResource("Resource_vt7lq"), SubResource("Resource_ws21c")])
+materials = Array[ExtResource("2_rolb0")]([])
+upgrades = Array[ExtResource("4_2r4qd")]([])
+screens = Array[ExtResource("3_rolb0")]([SubResource("Resource_j2wbb")])
+metadata/_custom_type_script = "uid://b3526uyrv3j5s"

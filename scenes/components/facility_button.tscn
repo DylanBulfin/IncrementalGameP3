@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8o5ax3beaofo"]
+
+[ext_resource type="Script" uid="uid://85g4jml6a55d" path="res://scenes/components/facility_button.gd" id="1_2uq1x"]
+
+[node name="FacilityButton" type="Button"]
+custom_minimum_size = Vector2(200, 150)
+offset_right = 200.0
+offset_bottom = 200.0
+script = ExtResource("1_2uq1x")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Content" type="Label" parent="PanelContainer/Button"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 1.0
+offset_bottom = 23.0
