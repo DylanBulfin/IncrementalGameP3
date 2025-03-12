@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://85g4jml6a55d" path="res://scenes/components/facility_button.gd" id="1_2uq1x"]
 
 [node name="FacilityButton" type="Button"]
-custom_minimum_size = Vector2(200, 150)
+custom_minimum_size = Vector2(350, 300)
 offset_right = 200.0
 offset_bottom = 200.0
 script = ExtResource("1_2uq1x")
@@ -15,12 +15,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
-[node name="Button" type="Button" parent="PanelContainer"]
-layout_mode = 2
-
-[node name="Content" type="Label" parent="PanelContainer/Button"]
+[node name="Content" type="Label" parent="PanelContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-offset_right = 1.0
-offset_bottom = 23.0
+layout_mode = 2

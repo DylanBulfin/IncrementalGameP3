@@ -9,9 +9,9 @@
 [sub_resource type="Resource" id="Resource_rolb0"]
 script = ExtResource("1_yqm58")
 title = "Dirt Mine"
-base_cost = 0.0
-base_output = 0.0
-cost_ratio = 0.0
+base_cost = 1.0
+base_output = 1.0
+cost_ratio = 1.35
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
@@ -20,9 +20,9 @@ metadata/_custom_type_script = "uid://bskj18fydavuw"
 [sub_resource type="Resource" id="Resource_yqm58"]
 script = ExtResource("1_yqm58")
 title = "Stone Mine"
-base_cost = 0.0
-base_output = 0.0
-cost_ratio = 0.0
+base_cost = 1000.0
+base_output = 1000.0
+cost_ratio = 1.4
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
@@ -31,9 +31,9 @@ metadata/_custom_type_script = "uid://bskj18fydavuw"
 [sub_resource type="Resource" id="Resource_raoho"]
 script = ExtResource("1_yqm58")
 title = "Copper Mine"
-base_cost = 0.0
-base_output = 0.0
-cost_ratio = 0.0
+base_cost = 1e+06
+base_output = 1e+06
+cost_ratio = 1.45
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
@@ -42,9 +42,9 @@ metadata/_custom_type_script = "uid://bskj18fydavuw"
 [sub_resource type="Resource" id="Resource_2r4qd"]
 script = ExtResource("1_yqm58")
 title = "Iron Mine"
-base_cost = 0.0
-base_output = 0.0
-cost_ratio = 0.0
+base_cost = 1e+09
+base_output = 1e+09
+cost_ratio = 1.5
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
@@ -53,9 +53,9 @@ metadata/_custom_type_script = "uid://bskj18fydavuw"
 [sub_resource type="Resource" id="Resource_4oi1i"]
 script = ExtResource("1_yqm58")
 title = "Silver Mine"
-base_cost = 0.0
-base_output = 0.0
-cost_ratio = 0.0
+base_cost = 1e+12
+base_output = 1e+12
+cost_ratio = 1.55
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
@@ -64,9 +64,9 @@ metadata/_custom_type_script = "uid://bskj18fydavuw"
 [sub_resource type="Resource" id="Resource_e1k00"]
 script = ExtResource("1_yqm58")
 title = "Gold Mine"
-base_cost = 0.0
-base_output = 0.0
-cost_ratio = 0.0
+base_cost = 1e+15
+base_output = 1e+15
+cost_ratio = 1.6
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
@@ -75,9 +75,9 @@ metadata/_custom_type_script = "uid://bskj18fydavuw"
 [sub_resource type="Resource" id="Resource_vt7lq"]
 script = ExtResource("1_yqm58")
 title = "Platinum Mine"
-base_cost = 0.0
-base_output = 0.0
-cost_ratio = 0.0
+base_cost = 1e+18
+base_output = 1e+18
+cost_ratio = 1.65
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
@@ -86,9 +86,9 @@ metadata/_custom_type_script = "uid://bskj18fydavuw"
 [sub_resource type="Resource" id="Resource_ws21c"]
 script = ExtResource("1_yqm58")
 title = "Diamond Mine"
-base_cost = 0.0
-base_output = 0.0
-cost_ratio = 0.0
+base_cost = 1e+21
+base_output = 1e+21
+cost_ratio = 1.7
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
@@ -97,7 +97,8 @@ metadata/_custom_type_script = "uid://bskj18fydavuw"
 [sub_resource type="Resource" id="Resource_j2wbb"]
 script = ExtResource("3_rolb0")
 title = "Facilities"
-scene_path = "facility_screen"
+help_title = ""
+help_content = ""
 metadata/_custom_type_script = "uid://dvq252w1v2qpw"
 
 [resource]

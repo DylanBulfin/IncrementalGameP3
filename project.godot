@@ -21,8 +21,12 @@ State="*res://scripts/state.gd"
 
 [debug]
 
+gdscript/warnings/unassigned_variable=2
+gdscript/warnings/unassigned_variable_op_assign=2
 gdscript/warnings/untyped_declaration=1
 gdscript/warnings/inferred_declaration=1
+gdscript/warnings/integer_division=0
+gdscript/warnings/narrowing_conversion=2
 
 [display]
 

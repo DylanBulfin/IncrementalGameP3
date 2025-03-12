@@ -1,21 +1,25 @@
 extends Resource
 class_name Facility
 
+@warning_ignore("unused_signal")
 signal facility_changed(facility: Facility)
 
 var id: int
 @export var title: String
 @export var base_cost: float
 @export var base_output: float
-@export var cost_ratio: float
-@export var count: int
+@export var cost_ratio: float = 1.5
+@export var count: int = 0
 @export var tens_multi: float = 2.0
 @export var hundreds_multi: float = 20.0
+
+var percent: float = 0.0 # Percentage of output this facility makes up
 
 # Multipliers from various systems
 var count_multi: float:
 	get:
-		var hundreds: int = count / 100 
+		# The integer division is intentional
+		var hundreds: int = count / 100
 		var tens: int = (count / 10) - hundreds
 		
 		return (hundreds_multi ** hundreds) \
