@@ -38,6 +38,9 @@ func _ready() -> void:
 	for i: int in len(facilities): facilities[i].id = i
 	for i: int in len(upgrades): upgrades[i].id = i
 	for i: int in len(materials): materials[i].id = i
+	
+	# Make sure user has enough for first building
+	bank = facilities[0].cost
 
 
 func format(num: float) -> String:
