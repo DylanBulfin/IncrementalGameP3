@@ -22,8 +22,8 @@ func update_text() -> void:
 	if base:
 		%Content.text = str(
 			base.title, "\n",
-			"Cost: ", State.format(base.cost * buy_count), "\n",
-			"Output(1): ", State.format(base.output), "\n",
-			"Count: ", State.format(base.count), "\n",
-			State.format(base.percent), "% of Total"
+			"Cost: ", Utils.format(Utils.get_total_cost(base, buy_count)), "\n",
+			"Output(1): ", Utils.format(base.output), "\n",
+			"Count: ", Utils.format(base.count), "\n",
+			Utils.format(base.percent), "% of Total"
 		)

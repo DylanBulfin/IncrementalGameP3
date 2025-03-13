@@ -50,3 +50,14 @@ var output: float:
 		* count_multi \
 		* upgrades_multi \
 		* materials_multi
+
+func to_dict() -> Dictionary:
+	# Count is the only non-derived field that can change during the game
+	return {"count": count}
+
+func update_from_dict(dict: Dictionary) -> bool:
+	if not "count" in dict:
+		return false
+		
+	count = dict["count"]
+	return true
