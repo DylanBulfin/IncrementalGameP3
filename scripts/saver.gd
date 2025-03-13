@@ -40,7 +40,6 @@ func load_file(path: String) -> bool:
 			for field: String in entity_data.keys():
 				entity.update_from_dict(entity_data)
 	
-	file.store_line(JSON.stringify(dict))
-	file.close()
+	State.init_bank(dict["bank"])
 	
 	return true

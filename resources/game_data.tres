@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameData" load_steps=15 format=3 uid="uid://hd4ps85k4fx5"]
+[gd_resource type="Resource" script_class="GameData" load_steps=27 format=3 uid="uid://hd4ps85k4fx5"]
 
 [ext_resource type="Script" uid="uid://bskj18fydavuw" path="res://resources/entities/facility.gd" id="1_yqm58"]
 [ext_resource type="Script" uid="uid://quo18bf08mye" path="res://resources/entities/material.gd" id="2_rolb0"]
@@ -11,6 +11,7 @@ script = ExtResource("1_yqm58")
 title = "Dirt Mine"
 base_cost = 10.0
 base_output = 1.0
+relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.25
 count = 0
 tens_multi = 2.0
@@ -22,6 +23,7 @@ script = ExtResource("1_yqm58")
 title = "Stone Mine"
 base_cost = 10000.0
 base_output = 1000.0
+relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.3
 count = 0
 tens_multi = 2.0
@@ -33,6 +35,7 @@ script = ExtResource("1_yqm58")
 title = "Copper Mine"
 base_cost = 1e+07
 base_output = 1e+06
+relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.35
 count = 0
 tens_multi = 2.0
@@ -44,6 +47,7 @@ script = ExtResource("1_yqm58")
 title = "Iron Mine"
 base_cost = 1e+10
 base_output = 1e+09
+relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.4
 count = 0
 tens_multi = 2.0
@@ -55,6 +59,7 @@ script = ExtResource("1_yqm58")
 title = "Silver Mine"
 base_cost = 1e+13
 base_output = 1e+12
+relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.45
 count = 0
 tens_multi = 2.0
@@ -66,6 +71,7 @@ script = ExtResource("1_yqm58")
 title = "Gold Mine"
 base_cost = 1e+16
 base_output = 1e+15
+relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.5
 count = 0
 tens_multi = 2.0
@@ -77,6 +83,7 @@ script = ExtResource("1_yqm58")
 title = "Platinum Mine"
 base_cost = 1e+19
 base_output = 1e+18
+relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.55
 count = 0
 tens_multi = 2.0
@@ -88,6 +95,7 @@ script = ExtResource("1_yqm58")
 title = "Diamond Mine"
 base_cost = 1e+22
 base_output = 1e+21
+relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.6
 count = 0
 tens_multi = 2.0
@@ -101,10 +109,130 @@ help_title = ""
 help_content = ""
 metadata/_custom_type_script = "uid://dvq252w1v2qpw"
 
+[sub_resource type="Resource" id="Resource_iqldt"]
+script = ExtResource("4_2r4qd")
+title = "Wood Output"
+base_cost = 10000.0
+type = 0
+count = 0
+cost_ratio = 10.0
+multiplier = 2.0
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
+[sub_resource type="Resource" id="Resource_rbntb"]
+script = ExtResource("4_2r4qd")
+title = "Stone Output"
+base_cost = 1e+07
+type = 1
+count = 0
+cost_ratio = 10.0
+multiplier = 2.0
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
+[sub_resource type="Resource" id="Resource_l1y71"]
+script = ExtResource("4_2r4qd")
+title = "Copper Output"
+base_cost = 1e+10
+type = 2
+count = 0
+cost_ratio = 10.0
+multiplier = 2.0
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
+[sub_resource type="Resource" id="Resource_d421p"]
+script = ExtResource("4_2r4qd")
+title = "Iron Output"
+base_cost = 1e+13
+type = 3
+count = 0
+cost_ratio = 10.0
+multiplier = 2.0
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
+[sub_resource type="Resource" id="Resource_7ruvp"]
+script = ExtResource("4_2r4qd")
+title = "Silver Output"
+base_cost = 1e+16
+type = 4
+count = 0
+cost_ratio = 10.0
+multiplier = 2.0
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
+[sub_resource type="Resource" id="Resource_5pkvu"]
+script = ExtResource("4_2r4qd")
+title = "Gold Output"
+base_cost = 1e+19
+type = 5
+count = 0
+cost_ratio = 10.0
+multiplier = 2.0
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
+[sub_resource type="Resource" id="Resource_pio6x"]
+script = ExtResource("4_2r4qd")
+title = "Platinum Output"
+base_cost = 1e+22
+type = 6
+count = 0
+cost_ratio = 10.0
+multiplier = 2.0
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
+[sub_resource type="Resource" id="Resource_2rm8q"]
+script = ExtResource("4_2r4qd")
+title = "Diamond Output"
+base_cost = 1e+25
+type = 7
+count = 0
+cost_ratio = 10.0
+multiplier = 2.0
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
+[sub_resource type="Resource" id="Resource_bdmhm"]
+script = ExtResource("4_2r4qd")
+title = "All Facilities Output"
+base_cost = 1e+30
+type = 8
+count = 0
+cost_ratio = 10.0
+multiplier = 2.0
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
+[sub_resource type="Resource" id="Resource_ebnl3"]
+script = ExtResource("4_2r4qd")
+title = "All Facilties Cost"
+base_cost = 1e+30
+type = 9
+count = 0
+cost_ratio = 10.0
+multiplier = 0.5
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
+[sub_resource type="Resource" id="Resource_sdou3"]
+script = ExtResource("4_2r4qd")
+title = "Crafting Speed"
+base_cost = 1e+30
+type = 10
+count = 0
+cost_ratio = 10.0
+multiplier = 2.0
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
+[sub_resource type="Resource" id="Resource_4b1nl"]
+script = ExtResource("4_2r4qd")
+title = "Crafting Output"
+base_cost = 1e+30
+type = 11
+count = 0
+cost_ratio = 10.0
+multiplier = 2.0
+metadata/_custom_type_script = "uid://cuvkauqs58q0v"
+
 [resource]
 script = ExtResource("3_raoho")
 facilities = Array[ExtResource("1_yqm58")]([SubResource("Resource_rolb0"), SubResource("Resource_yqm58"), SubResource("Resource_raoho"), SubResource("Resource_2r4qd"), SubResource("Resource_4oi1i"), SubResource("Resource_e1k00"), SubResource("Resource_vt7lq"), SubResource("Resource_ws21c")])
 materials = Array[ExtResource("2_rolb0")]([])
-upgrades = Array[ExtResource("4_2r4qd")]([])
+upgrades = Array[ExtResource("4_2r4qd")]([SubResource("Resource_iqldt"), SubResource("Resource_rbntb"), SubResource("Resource_l1y71"), SubResource("Resource_d421p"), SubResource("Resource_7ruvp"), SubResource("Resource_5pkvu"), SubResource("Resource_pio6x"), SubResource("Resource_2rm8q"), SubResource("Resource_bdmhm"), SubResource("Resource_ebnl3"), SubResource("Resource_sdou3"), SubResource("Resource_4b1nl")])
 screens = Array[ExtResource("3_rolb0")]([SubResource("Resource_j2wbb")])
 metadata/_custom_type_script = "uid://b3526uyrv3j5s"

@@ -12,6 +12,9 @@ func try_debit_bank(amount: float) -> bool:
 func credit_bank(amount: float) -> void:
 	bank += amount
 	bank_changed.emit(bank)
+func init_bank(amount: float) -> void:
+	bank = amount
+	bank_changed.emit(bank)
 
 var screens: Array[Screen]
 
@@ -42,7 +45,11 @@ func _ready() -> void:
 	# initialize ids
 	for i: int in len(screens): screens[i].id = i
 	for i: int in len(facilities): facilities[i].id = i
-	for i: int in len(upgrades): upgrades[i].id = i
+	for i: int in len(upgrades): 
+		upgrades[i].id = i
+		# Make sure id and type match
+		if i != upgrades[i].type as int:
+			breakpoint
 	for i: int in len(materials): materials[i].id = i
 	
 	# Make sure user has enough for first building

@@ -1,6 +1,7 @@
 extends Resource
 class_name Upgrade
 
+# Must match id
 enum UpgradeType {
 	Facility1,
 	Facility2,
@@ -32,7 +33,12 @@ var id: int
 @export var count: int = 0
 
 @export var cost_ratio: float = 10.0
-@export var multiplier: float = 2.0
+@export var base_multiplier: float = 2.0
+
+var cost: float:
+	get: return base_cost * (cost_ratio ** count)
+var multiplier: float:
+	get: return base_multiplier ** count
 
 var category: UpgradeCategory:
 	get:

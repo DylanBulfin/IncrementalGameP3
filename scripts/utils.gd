@@ -37,5 +37,5 @@ func format(num: float) -> String:
 		else:
 			return str(dec_str, "e%d" % power)
 
-func get_total_cost(facility: Facility, count: int) -> float:
-	return facility.cost * ((facility.cost_ratio ** count) - 1) / (facility.cost_ratio - 1)
+func get_total_cost(cost: float, cost_ratio: float, count: int) -> float:
+	return cost * ((cost_ratio ** count) - 1) / (cost_ratio - 1)

@@ -47,7 +47,7 @@ func _on_bank_changed(_bank: float) -> void:
 	update_disabled_all()
 
 func try_buy_count(facility: Facility, count: int) -> void:
-	var total_cost: float = Utils.get_total_cost(facility, count)
+	var total_cost: float = Utils.get_total_cost(facility.cost, facility.cost_ratio, count)
 	if State.try_debit_bank(total_cost):
 		State.add_facility_count(facility.id, count)
 		update_disabled(facility.id)
@@ -83,8 +83,8 @@ func calculate_output(time: float) -> void:
 	State.credit_bank(total_output)
 
 func update_disabled(id: int) -> void:
-	nodes[id].disabled = State.bank < Utils.get_total_cost(nodes[id].base, buy_count)
+	nodes[id].disabled = State.bank < Utils.get_total_cost(nodes[id].base.cost, nodes[id].base.cost_ratio, buy_count)
 
 func update_disabled_all() -> void:
 	for node: Node in nodes:
-		node.disabled = State.bank < Utils.get_total_cost(node.base, buy_count)
+		node.disabled = State.bank < Utils.get_total_cost(node.base.cost, node.base.cost_ratio, buy_count)

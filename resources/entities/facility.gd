@@ -8,11 +8,16 @@ var id: int
 @export var title: String
 @export var base_cost: float
 @export var base_output: float
+
 @export var cost_ratio: float = 1.5
 @export var count: int = 0
 @export var tens_multi: float = 2.0
 @export var hundreds_multi: float = 20.0
 
+@export var output_upgrade_types: Array[Upgrade.UpgradeType] = \
+[Upgrade.UpgradeType.AllFacilityOutput]
+@export var cost_upgrade_types: Array[Upgrade.UpgradeType] = \
+[Upgrade.UpgradeType.AllFacilityCost]
 var percent: float = 0.0 # Percentage of output this facility makes up
 
 # Multipliers from various systems
@@ -26,7 +31,9 @@ var count_multi: float:
 			 * (tens_multi ** tens)
 
 var upgrades_multi: float:
-	get: return 1.0 # TODO Fix this when upgrades implemented
+	get: return output_upgrade_types\
+		.map(func(t: int) -> float: return State.upgrades[t].multiplier)\
+		.reduce(func(acc: float, next: float) -> float: return acc * next)
 
 var materials_multi: float:
 	get: return 1.0 # TODO Fix this when crafting implemented
@@ -36,7 +43,10 @@ var cost_count_multi: float:
 
 # This is more of a divisor
 var cost_upgrades_multi: float:
-	get: return 1.0 # TODO Fix this when upgrades implemented
+	get: return cost_upgrade_types\
+		.map(func(t: int) -> float: return State.upgrades[t].multiplier)\
+		.reduce(func(acc: float, next: float) -> float: return acc * next)
+			
 
 var cost: float:
 	get: return \
