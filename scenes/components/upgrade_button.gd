@@ -2,16 +2,22 @@ extends Button
 
 var base: Upgrade
 
-func _ready() -> void: 
-	update_text()
-
 func init(base_upgrade: Upgrade) -> void:
 	base = base_upgrade
 	base.upgrade_changed.connect(_on_upgrade_changed)
+	State.bank_changed.connect(_on_bank_changed)
+	update()
 
 func _on_upgrade_changed(upg: Upgrade) -> void:
 	if base.id == upg.id:
-		update_text()
+		update()
+
+func _on_bank_changed(_bank: float) -> void:
+	update(false)
+
+func update(update_text = true) -> void:
+	if update_text: update_text()
+	update_disabled()
 
 func update_text() -> void:
 	if base:
@@ -21,3 +27,6 @@ func update_text() -> void:
 			"Multiplier: ", Utils.format(base.multiplier), "x", "\n",
 			"Level: ", Utils.format(base.count)
 		)
+
+func update_disabled() -> void:
+	self.disabled = State.bank < base.cost

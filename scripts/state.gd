@@ -1,7 +1,7 @@
 extends Node
 
 # Global non-Resource variables, signals, and helpers
-var bank: float = 1.0e50
+var bank: float
 signal bank_changed(bank: float)
 func try_debit_bank(amount: float) -> bool:
 	if bank >= amount:

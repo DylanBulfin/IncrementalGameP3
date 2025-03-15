@@ -3,17 +3,18 @@ extends Button
 var base: Facility
 var buy_count: int = 1
 
-func _ready() -> void: 
-	update_text()
-
 func init(base_facility: Facility, buy_count_sig: Signal) -> void:
 	base = base_facility
 	base.facility_changed.connect(_on_facility_changed)
 	buy_count_sig.connect(_on_buy_count_changed)
+	update()
 
 func _on_facility_changed(fac: Facility) -> void:
 	if base == fac:
-		update_text()
+		update()
+
+func _on_bank_change(bank: float) -> void:
+	update(false)
 
 func _on_buy_count_changed(new_buy_count: int) -> void:
 	buy_count = new_buy_count
@@ -21,8 +22,11 @@ func _on_buy_count_changed(new_buy_count: int) -> void:
 func _on_upgrade_changed(upgrade: Upgrade) -> void:
 	if upgrade.type in base.cost_upgrade_types \
 	or upgrade.type in base.output_upgrade_types:
-		update_text()
-		update_disabled()
+		update()
+
+func update(update_text = true):
+	if update_text: update_text()
+	update_disabled()
 
 func update_text() -> void:
 	if base:

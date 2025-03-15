@@ -25,9 +25,6 @@ func _ready() -> void:
 	group.pressed.connect(_on_facility_button_pressed)
 	
 	%BuyCountButton.pressed.connect(_on_buy_count_button_pressed)
-	State.bank_changed.connect(_on_bank_changed)
-	
-	update_disabled_all()
 
 func _process(delta: float) -> void:
 	total_time += delta
@@ -44,17 +41,10 @@ func _on_facility_button_pressed(button: BaseButton) -> void:
 func _on_buy_count_button_pressed() -> void:
 	increment_buy_count()
 
-func _on_bank_changed(_bank: float) -> void:
-	update_disabled_all()
-
-func _on_upgrade_changed(_upgrade: Upgrade) -> void:
-	update_disabled_all()
-
 func try_buy_count(facility: Facility, count: int) -> void:
 	var total_cost: float = Utils.get_total_cost(facility.cost, facility.cost_ratio, count)
 	if State.try_debit_bank(total_cost):
 		State.add_facility_count(facility.id, count)
-		update_disabled(facility.id)
 
 func increment_buy_count() -> void:
 	match buy_count:
@@ -85,9 +75,3 @@ func calculate_output(time: float) -> void:
 		State.set_facility_percent(i, percent)
 	
 	State.credit_bank(total_output)
-
-func update_disabled(id: int) -> void:
-	nodes[id].update_disabled()
-
-func update_disabled_all() -> void:
-	for node: Node in nodes: node.update_disabled()
