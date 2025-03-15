@@ -39,3 +39,9 @@ func format(num: float) -> String:
 
 func get_total_cost(cost: float, cost_ratio: float, count: int) -> float:
 	return cost * ((cost_ratio ** count) - 1) / (cost_ratio - 1)
+
+func exec_event(action: String) -> void:
+	var event: InputEventAction = InputEventAction.new()
+	event.action = action
+	event.pressed = true
+	Input.parse_input_event(event)

@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://ugjivmk01r75"]
+
+[ext_resource type="Script" uid="uid://cdjaecuikbms8" path="res://popup_container.gd" id="1_c6l0w"]
+
+[node name="PopupContainer" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+color = Color(0.121569, 0.121569, 0.121569, 1)
+script = ExtResource("1_c6l0w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PopupTitleContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PopupTitleContainer"]
+layout_mode = 2
+
+[node name="PopupTitle" type="Label" parent="VBoxContainer/PopupTitleContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "A"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/PopupTitleContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "X"
+
+[node name="PoputTextContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PopupText" type="Label" parent="VBoxContainer/PoputTextContainer"]
+unique_name_in_owner = true
+layout_mode = 2
