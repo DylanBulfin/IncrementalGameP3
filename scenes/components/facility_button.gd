@@ -1,4 +1,4 @@
-extends Control
+extends Button
 
 var base: Facility
 var buy_count: int = 1
@@ -18,6 +18,12 @@ func _on_facility_changed(fac: Facility) -> void:
 func _on_buy_count_changed(new_buy_count: int) -> void:
 	buy_count = new_buy_count
 
+func _on_upgrade_changed(upgrade: Upgrade) -> void:
+	if upgrade.type in base.cost_upgrade_types \
+	or upgrade.type in base.output_upgrade_types:
+		update_text()
+		update_disabled()
+
 func update_text() -> void:
 	if base:
 		%Content.text = str(
@@ -27,3 +33,6 @@ func update_text() -> void:
 			"Count: ", Utils.format(base.count), "\n",
 			Utils.format(base.percent), "% of Total"
 		)
+
+func update_disabled() -> void:
+	self.disabled = State.bank < Utils.get_total_cost(base.cost, base.cost_ratio, buy_count)

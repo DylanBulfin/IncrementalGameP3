@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://j22g6poux24o"]
 
-[ext_resource type="Script" uid="uid://cl1ya1vm63xdc" path="res://header.gd" id="1_866fw"]
+[ext_resource type="Script" uid="uid://cl1ya1vm63xdc" path="res://scenes/components/header.gd" id="1_866fw"]
 
 [node name="Header" type="HBoxContainer"]
 script = ExtResource("1_866fw")

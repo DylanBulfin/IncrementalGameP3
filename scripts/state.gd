@@ -1,7 +1,7 @@
 extends Node
 
 # Global non-Resource variables, signals, and helpers
-var bank: float
+var bank: float = 1.0e50
 signal bank_changed(bank: float)
 func try_debit_bank(amount: float) -> bool:
 	if bank >= amount:
@@ -27,6 +27,10 @@ func set_facility_percent(id: int, percent: float) -> void:
 	facilities[id].facility_changed.emit(facilities[id])
 
 var upgrades: Array[Upgrade] 
+func add_upgrade_count(id: int, count: int) -> void:
+	upgrades[id].count += count
+	upgrades[id].upgrade_changed.emit(upgrades[id])
+
 var materials: Array[CMaterial]
 
 func update_entities(collection_name: String, dicts: Array[Dictionary]) -> void:

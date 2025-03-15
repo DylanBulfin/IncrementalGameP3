@@ -1,7 +1,9 @@
 extends HBoxContainer
 
+@warning_ignore_start("unused_signal")
 signal help_pressed
 signal side_menu_pressed
+@warning_ignore_restore("unused_signal")
 
 func _ready() -> void:
 	update_text()

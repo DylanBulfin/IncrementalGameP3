@@ -1,5 +1,6 @@
 extends ColorRect
 
+@warning_ignore("unused_signal")
 signal exit_button_pressed
 
 func _ready() -> void:

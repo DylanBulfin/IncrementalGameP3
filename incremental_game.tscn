@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btuhaluktqodx" path="res://scripts/screen_manager.gd" id="1_6071b"]
 [ext_resource type="PackedScene" uid="uid://j22g6poux24o" path="res://scenes/components/header.tscn" id="2_5t6mn"]
-[ext_resource type="Script" uid="uid://cnproo08b7vfu" path="res://popup_manager.gd" id="2_ox5v5"]
+[ext_resource type="Script" uid="uid://cnproo08b7vfu" path="res://scripts/popup_manager.gd" id="2_ox5v5"]
 [ext_resource type="PackedScene" uid="uid://ugjivmk01r75" path="res://scenes/components/popup_container.tscn" id="4_no6pd"]
 
 [node name="IncrementalGame" type="Control"]
