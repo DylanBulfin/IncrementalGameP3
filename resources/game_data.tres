@@ -11,11 +11,12 @@ script = ExtResource("1_yqm58")
 title = "Dirt Mine"
 base_cost = 10.0
 base_output = 1.0
-relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.25
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
+output_upgrade_types = Array[int]([8, 0])
+cost_upgrade_types = Array[int]([9])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_yqm58"]
@@ -23,11 +24,12 @@ script = ExtResource("1_yqm58")
 title = "Stone Mine"
 base_cost = 10000.0
 base_output = 1000.0
-relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.3
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
+output_upgrade_types = Array[int]([8, 1])
+cost_upgrade_types = Array[int]([9])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_raoho"]
@@ -35,11 +37,12 @@ script = ExtResource("1_yqm58")
 title = "Copper Mine"
 base_cost = 1e+07
 base_output = 1e+06
-relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.35
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
+output_upgrade_types = Array[int]([8, 2])
+cost_upgrade_types = Array[int]([9])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_2r4qd"]
@@ -47,11 +50,12 @@ script = ExtResource("1_yqm58")
 title = "Iron Mine"
 base_cost = 1e+10
 base_output = 1e+09
-relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.4
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
+output_upgrade_types = Array[int]([8, 3])
+cost_upgrade_types = Array[int]([9])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_4oi1i"]
@@ -59,11 +63,12 @@ script = ExtResource("1_yqm58")
 title = "Silver Mine"
 base_cost = 1e+13
 base_output = 1e+12
-relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.45
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
+output_upgrade_types = Array[int]([8, 4])
+cost_upgrade_types = Array[int]([9])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_e1k00"]
@@ -71,11 +76,12 @@ script = ExtResource("1_yqm58")
 title = "Gold Mine"
 base_cost = 1e+16
 base_output = 1e+15
-relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.5
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
+output_upgrade_types = Array[int]([8, 5])
+cost_upgrade_types = Array[int]([9])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_vt7lq"]
@@ -83,11 +89,12 @@ script = ExtResource("1_yqm58")
 title = "Platinum Mine"
 base_cost = 1e+19
 base_output = 1e+18
-relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.55
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
+output_upgrade_types = Array[int]([8, 6])
+cost_upgrade_types = Array[int]([9])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_ws21c"]
@@ -95,11 +102,12 @@ script = ExtResource("1_yqm58")
 title = "Diamond Mine"
 base_cost = 1e+22
 base_output = 1e+21
-relevant_upgrade_ids = Array[int]([])
 cost_ratio = 1.6
 count = 0
 tens_multi = 2.0
 hundreds_multi = 20.0
+output_upgrade_types = Array[int]([8, 7])
+cost_upgrade_types = Array[int]([9])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_j2wbb"]
@@ -116,7 +124,7 @@ base_cost = 10000.0
 type = 0
 count = 0
 cost_ratio = 10.0
-multiplier = 2.0
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [sub_resource type="Resource" id="Resource_rbntb"]
@@ -126,7 +134,7 @@ base_cost = 1e+07
 type = 1
 count = 0
 cost_ratio = 10.0
-multiplier = 2.0
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [sub_resource type="Resource" id="Resource_l1y71"]
@@ -136,7 +144,7 @@ base_cost = 1e+10
 type = 2
 count = 0
 cost_ratio = 10.0
-multiplier = 2.0
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [sub_resource type="Resource" id="Resource_d421p"]
@@ -146,7 +154,7 @@ base_cost = 1e+13
 type = 3
 count = 0
 cost_ratio = 10.0
-multiplier = 2.0
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [sub_resource type="Resource" id="Resource_7ruvp"]
@@ -156,7 +164,7 @@ base_cost = 1e+16
 type = 4
 count = 0
 cost_ratio = 10.0
-multiplier = 2.0
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [sub_resource type="Resource" id="Resource_5pkvu"]
@@ -166,7 +174,7 @@ base_cost = 1e+19
 type = 5
 count = 0
 cost_ratio = 10.0
-multiplier = 2.0
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [sub_resource type="Resource" id="Resource_pio6x"]
@@ -176,7 +184,7 @@ base_cost = 1e+22
 type = 6
 count = 0
 cost_ratio = 10.0
-multiplier = 2.0
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [sub_resource type="Resource" id="Resource_2rm8q"]
@@ -186,7 +194,7 @@ base_cost = 1e+25
 type = 7
 count = 0
 cost_ratio = 10.0
-multiplier = 2.0
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [sub_resource type="Resource" id="Resource_bdmhm"]
@@ -196,7 +204,7 @@ base_cost = 1e+30
 type = 8
 count = 0
 cost_ratio = 10.0
-multiplier = 2.0
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [sub_resource type="Resource" id="Resource_ebnl3"]
@@ -206,7 +214,7 @@ base_cost = 1e+30
 type = 9
 count = 0
 cost_ratio = 10.0
-multiplier = 0.5
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [sub_resource type="Resource" id="Resource_sdou3"]
@@ -216,7 +224,7 @@ base_cost = 1e+30
 type = 10
 count = 0
 cost_ratio = 10.0
-multiplier = 2.0
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [sub_resource type="Resource" id="Resource_4b1nl"]
@@ -226,7 +234,7 @@ base_cost = 1e+30
 type = 11
 count = 0
 cost_ratio = 10.0
-multiplier = 2.0
+base_multiplier = 2.0
 metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 
 [resource]
