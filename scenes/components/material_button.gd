@@ -34,8 +34,8 @@ func update_text() -> void:
 	%MaterialLabel.text = str(
 		base.title, "\n",
 		"Bank Cost: ", Utils.format(base.bank_cost), "\n",
-		str("Material 1: ", Utils.format(base.input_material1_count), "x ", State.materials[base.input_material1_id].title, "\n") if base.input_material1_id != -1 else "",
-		str("Material 2: ", Utils.format(base.input_material2_count), "x ", State.materials[base.input_material2_id].title, "\n") if base.input_material2_id != -1 else "",
+		str(Utils.format(base.input_material1_count), "x ", State.materials[base.input_material1_id].title, "\n") if base.input_material1_id != -1 else "",
+		str(Utils.format(base.input_material2_count), "x ", State.materials[base.input_material2_id].title, "\n") if base.input_material2_id != -1 else "",
 		get_time_string(), "\n",
 		"Count: ", Utils.format(base.count)
 	)

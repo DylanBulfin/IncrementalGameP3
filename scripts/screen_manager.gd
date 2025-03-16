@@ -37,10 +37,12 @@ func _input(event: InputEvent) -> void:
 func open_side_menu() -> void:
 	if not %SideMenu.visible:
 		%SideMenu.visible = true
+		State.on_normal_screen = false
 
 func close_side_menu() -> void:
 	if %SideMenu.visible:
 		%SideMenu.visible = false
+		State.on_normal_screen = not %PopupContainer.visible
 
 func switch_to_screen(id: int) -> void:
 	if curr_screen != id:

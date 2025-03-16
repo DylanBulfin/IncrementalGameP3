@@ -12,10 +12,12 @@ var id: int
 
 # -1 means N/A
 @export var input_material1_id: int = -1
-@export var input_material2_id: int = -1
-
 @export var input_material1_count: float = 0
+
+@export var input_material2_id: int = -1
 @export var input_material2_count: float = 0
+
+@export var facility_multiplier = 100.0
 
 var time_cost: float:
 	get: return base_time_cost / State.cspeed

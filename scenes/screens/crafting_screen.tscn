@@ -37,6 +37,7 @@ text = "Crafting: Nothing"
 
 [node name="StopCraftingButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 text = "Stop Crafting"
 

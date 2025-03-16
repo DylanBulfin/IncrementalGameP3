@@ -71,6 +71,14 @@ func _process(delta: float) -> void:
 		# We can afford another recipe, start it
 		init_tween()
 	
+	if is_active:
+		# To update time remaining or current rate
+		update_text()
+
+func _input(event: InputEvent) -> void:
+	if State.on_normal_screen and self.visible and event.is_action_pressed("exit"):
+		cancel_recipe()
+	
 func _on_pressed(button: BaseButton) -> void:
 	try_activate_recipe(button.base)
 	button.set_pressed_no_signal(false)
@@ -150,6 +158,6 @@ func update_text() -> void:
 	elif is_fast and is_active:
 		bot_text = str(last_rate, "/s total")
 	elif is_active:
-		bot_text = str(active_recipe.time_cost, "s")
+		bot_text = str(active_recipe.time_cost, "s (", Utils.format((100.0 - %ProgressBar.value) * 0.01 * active_recipe.time_cost), "s left)")
 	
 	%ProgressBarLabel.text = str(top_text, "\n", bot_text)

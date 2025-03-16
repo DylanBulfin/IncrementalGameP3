@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameData" load_steps=31 format=3 uid="uid://hd4ps85k4fx5"]
+[gd_resource type="Resource" script_class="GameData" load_steps=32 format=3 uid="uid://hd4ps85k4fx5"]
 
 [ext_resource type="Script" uid="uid://bskj18fydavuw" path="res://resources/entities/facility.gd" id="1_yqm58"]
 [ext_resource type="Script" uid="uid://quo18bf08mye" path="res://resources/entities/material.gd" id="2_rolb0"]
@@ -17,6 +17,7 @@ tens_multi = 2.0
 hundreds_multi = 20.0
 output_upgrade_types = Array[int]([8, 0])
 cost_upgrade_types = Array[int]([9])
+output_material_types = Array[int]([2])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_yqm58"]
@@ -30,6 +31,7 @@ tens_multi = 2.0
 hundreds_multi = 20.0
 output_upgrade_types = Array[int]([8, 1])
 cost_upgrade_types = Array[int]([9])
+output_material_types = Array[int]([])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_raoho"]
@@ -43,6 +45,7 @@ tens_multi = 2.0
 hundreds_multi = 20.0
 output_upgrade_types = Array[int]([8, 2])
 cost_upgrade_types = Array[int]([9])
+output_material_types = Array[int]([])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_2r4qd"]
@@ -56,6 +59,7 @@ tens_multi = 2.0
 hundreds_multi = 20.0
 output_upgrade_types = Array[int]([8, 3])
 cost_upgrade_types = Array[int]([9])
+output_material_types = Array[int]([])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_4oi1i"]
@@ -69,6 +73,7 @@ tens_multi = 2.0
 hundreds_multi = 20.0
 output_upgrade_types = Array[int]([8, 4])
 cost_upgrade_types = Array[int]([9])
+output_material_types = Array[int]([])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_e1k00"]
@@ -82,6 +87,7 @@ tens_multi = 2.0
 hundreds_multi = 20.0
 output_upgrade_types = Array[int]([8, 5])
 cost_upgrade_types = Array[int]([9])
+output_material_types = Array[int]([])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_vt7lq"]
@@ -95,6 +101,7 @@ tens_multi = 2.0
 hundreds_multi = 20.0
 output_upgrade_types = Array[int]([8, 6])
 cost_upgrade_types = Array[int]([9])
+output_material_types = Array[int]([])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_ws21c"]
@@ -108,18 +115,46 @@ tens_multi = 2.0
 hundreds_multi = 20.0
 output_upgrade_types = Array[int]([8, 7])
 cost_upgrade_types = Array[int]([9])
+output_material_types = Array[int]([])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
 [sub_resource type="Resource" id="Resource_qlxfl"]
 script = ExtResource("2_rolb0")
-title = "Gear"
-bank_cost = 1.0
+title = "Wood Gear"
+bank_cost = 10000.0
 base_time_cost = 1.0
 count = 0.0
 input_material1_id = -1
-input_material2_id = -1
 input_material1_count = 0.0
+input_material2_id = -1
 input_material2_count = 0.0
+facility_multiplier = 100.0
+metadata/_custom_type_script = "uid://quo18bf08mye"
+
+[sub_resource type="Resource" id="Resource_urygg"]
+script = ExtResource("2_rolb0")
+title = "Wood Motor"
+bank_cost = 1e+07
+base_time_cost = 10.0
+count = 0.0
+input_material1_id = 0
+input_material1_count = 10.0
+input_material2_id = -1
+input_material2_count = 0.0
+facility_multiplier = 100.0
+metadata/_custom_type_script = "uid://quo18bf08mye"
+
+[sub_resource type="Resource" id="Resource_22mxl"]
+script = ExtResource("2_rolb0")
+title = "Wood Robot"
+bank_cost = 1e+10
+base_time_cost = 100.0
+count = 0.0
+input_material1_id = 0
+input_material1_count = 100.0
+input_material2_id = 1
+input_material2_count = 10.0
+facility_multiplier = 100.0
 metadata/_custom_type_script = "uid://quo18bf08mye"
 
 [sub_resource type="Resource" id="Resource_j2wbb"]
@@ -139,15 +174,8 @@ metadata/_custom_type_script = "uid://dvq252w1v2qpw"
 [sub_resource type="Resource" id="Resource_obpou"]
 script = ExtResource("3_rolb0")
 title = "Crafting"
-help_title = ""
-help_content = ""
-metadata/_custom_type_script = "uid://dvq252w1v2qpw"
-
-[sub_resource type="Resource" id="Resource_5qh7m"]
-script = ExtResource("3_rolb0")
-title = "Inventory"
-help_title = ""
-help_content = ""
+help_title = "Crafting Help"
+help_content = "In the crafting menu you can craft materials to help your facilities. Each recipe costs some amount from the bank, and potentially also some number of other materials. It also takes some time which you can reduce with the crafting speed upgrade. The Robot-type materials upgrade the corresponding facility with a 100x multiplier. "
 metadata/_custom_type_script = "uid://dvq252w1v2qpw"
 
 [sub_resource type="Resource" id="Resource_iqldt"]
@@ -273,7 +301,7 @@ metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 [resource]
 script = ExtResource("3_raoho")
 facilities = Array[ExtResource("1_yqm58")]([SubResource("Resource_rolb0"), SubResource("Resource_yqm58"), SubResource("Resource_raoho"), SubResource("Resource_2r4qd"), SubResource("Resource_4oi1i"), SubResource("Resource_e1k00"), SubResource("Resource_vt7lq"), SubResource("Resource_ws21c")])
-materials = Array[ExtResource("2_rolb0")]([SubResource("Resource_qlxfl")])
+materials = Array[ExtResource("2_rolb0")]([SubResource("Resource_qlxfl"), SubResource("Resource_urygg"), SubResource("Resource_22mxl")])
 upgrades = Array[ExtResource("4_2r4qd")]([SubResource("Resource_iqldt"), SubResource("Resource_rbntb"), SubResource("Resource_l1y71"), SubResource("Resource_d421p"), SubResource("Resource_7ruvp"), SubResource("Resource_5pkvu"), SubResource("Resource_pio6x"), SubResource("Resource_2rm8q"), SubResource("Resource_bdmhm"), SubResource("Resource_ebnl3"), SubResource("Resource_sdou3"), SubResource("Resource_4b1nl")])
-screens = Array[ExtResource("3_rolb0")]([SubResource("Resource_j2wbb"), SubResource("Resource_63f53"), SubResource("Resource_obpou"), SubResource("Resource_5qh7m")])
+screens = Array[ExtResource("3_rolb0")]([SubResource("Resource_j2wbb"), SubResource("Resource_63f53"), SubResource("Resource_obpou")])
 metadata/_custom_type_script = "uid://b3526uyrv3j5s"

@@ -27,6 +27,7 @@ var cspeed: float:
 signal cspeed_changed(cspeed: float)
 
 var screens: Array[Screen]
+var on_normal_screen: bool = true
 
 var facilities: Array[Facility]
 func add_facility_count(id: int, count: int) -> void:

@@ -18,6 +18,7 @@ var id: int
 [Upgrade.UpgradeType.AllFacilityOutput]
 @export var cost_upgrade_types: Array[Upgrade.UpgradeType] = \
 [Upgrade.UpgradeType.AllFacilityCost]
+@export var output_material_types: Array[int]
 var percent: float = 0.0 # Percentage of output this facility makes up
 
 # Multipliers from various systems
@@ -36,7 +37,10 @@ var upgrades_multi: float:
 		.reduce(func(acc: float, next: float) -> float: return acc * next)
 
 var materials_multi: float:
-	get: return 1.0 # TODO Fix this when crafting implemented
+	get: return output_material_types\
+		.map(func(m: int) -> float: return State.materials[m].facility_multiplier)\
+		.reduce(func(acc: float, next: float) -> float: return acc * next)\
+		if len(output_material_types) > 0 else 1.0
 
 var cost_count_multi: float:
 	get: return cost_ratio ** count

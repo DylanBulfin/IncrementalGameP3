@@ -22,7 +22,9 @@ func create_popup(title: String, text: String) -> void:
 func show_popup() -> void:
 	if not %PopupContainer.visible:
 		%PopupContainer.visible = true
+		State.on_normal_screen = false
 
 func hide_popup() -> void:
 	if %PopupContainer.visible:
 		%PopupContainer.visible = false
+		State.on_normal_screen = not %SideMenu.visible
