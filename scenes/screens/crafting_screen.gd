@@ -3,6 +3,7 @@ extends Control
 signal wait_signal
 
 var group: ButtonGroup = ButtonGroup.new()
+var buttons: Array[Button]
 
 var is_active: bool = false
 var is_queued: bool = false # If it's slow and inactive but will activate once affordable
@@ -15,14 +16,14 @@ var last_rate: float
 func _ready() -> void:
 	var button_scene: PackedScene = preload("res://scenes/components/material_button.tscn")
 	
-	for material: CMaterial in State.materials:
+	for mat: CMaterial in State.materials:
 		var node: Button = button_scene.instantiate()
-		node.init(material)
+		node.init(mat)
 		node.toggle_mode = true
 		node.button_group = group
+		buttons.append(node)
 		%MaterialsContainer.add_child(node)
 	
-	group.allow_unpress = true
 	group.pressed.connect(_on_pressed)
 	
 	%StopCraftingButton.pressed.connect(_on_stop_crafting_pressed)
@@ -33,6 +34,10 @@ func _ready() -> void:
 	
 	State.shutdown_initiated.connect(_on_shutdown_initiated)
 	State.register_wait_signal(wait_signal)
+	
+	# Connect to the crafting speed upgrade
+	var cspeed_upgrade: Upgrade = State.upgrades[Upgrade.UpgradeType.CraftingSpeed as int]
+	cspeed_upgrade.upgrade_changed.connect(_on_cspeed_upgrade_changed)
 	
 	update_text()
 
@@ -55,12 +60,12 @@ func _process(delta: float) -> void:
 			if bank_count < max_count: max_count = bank_count
 			
 			if active_recipe.input_material1_id != -1:
-				var material1 = State.materials[active_recipe.input_material1_id]
-				var material1_count = material1.count / active_recipe.input_material1_count
+				var material1: CMaterial = State.materials[active_recipe.input_material1_id]
+				var material1_count: float = material1.count / active_recipe.input_material1_count
 				if material1_count < max_count: max_count = material1_count
 			if active_recipe.input_material2_id != -1:
-				var material2 = State.materials[active_recipe.input_material2_id]
-				var material2_count = material2.count / active_recipe.input_material2_count
+				var material2: CMaterial = State.materials[active_recipe.input_material2_id]
+				var material2_count: float = material2.count / active_recipe.input_material2_count
 				if material2_count < max_count: max_count = material2_count
 			
 			if not State.try_debit_material_cost(active_recipe, max_count):
@@ -81,7 +86,6 @@ func _input(event: InputEvent) -> void:
 	
 func _on_pressed(button: BaseButton) -> void:
 	try_activate_recipe(button.base)
-	button.set_pressed_no_signal(false)
 
 func _on_shutdown_initiated() -> void:
 	cancel_recipe()
@@ -90,6 +94,12 @@ func _on_shutdown_initiated() -> void:
 
 func _on_stop_crafting_pressed() -> void:
 	cancel_recipe()
+
+func _on_cspeed_upgrade_changed(_upgrade: Upgrade) -> void:
+	if is_active and not is_fast:
+		# Need to destroy and restart this tween
+		active_tween.kill()
+		init_tween()
 
 func cancel_recipe() -> void:
 	if is_active and not is_fast:
@@ -102,32 +112,37 @@ func cancel_recipe() -> void:
 	
 	%ProgressBar.value = 0
 	
+	buttons[active_recipe.id].set_pressed_no_signal(false)
+	
 	update_text()
 
-func try_activate_recipe(material: CMaterial) -> void:
-	if is_active and material == active_recipe:
+func try_activate_recipe(mat: CMaterial) -> void:
+	if is_active and mat == active_recipe:
 		# No need to do anything
 		return
 	
 	cancel_recipe()
 	
 	# When time is too low, tweeners are imprecise and inefficient
-	if material.time_cost <= 0.25:
+	if mat.time_cost <= 0.25:
+		active_recipe = mat
 		is_active = true
 		is_fast = true
 	else:
-		active_recipe = material
+		active_recipe = mat
 		if State.try_debit_material_cost(active_recipe):
 			is_active = true
+			init_tween()
 		else:
 			is_queued = true
-		init_tween()
+	
+	buttons[mat.id].set_pressed_no_signal(true)
 	
 	update_text()
 
 func init_tween() -> void:
 	active_tween = get_tree().create_tween()
-	active_tween.tween_property(%ProgressBar, "value", 100, active_recipe.time_cost)
+	active_tween.tween_property(%ProgressBar, "value", 100, (100.0 - %ProgressBar.value) * 0.01 * active_recipe.time_cost)
 	active_tween.tween_callback(complete_tweened_recipe)
 	active_tween.set_loops()
 
@@ -143,6 +158,7 @@ func try_start_tweened_recipe() -> void:
 		active_tween.kill()
 		is_active = false
 		is_queued = true
+		update_text()
 
 func update_text() -> void:
 	var top_text: String = "Crafting: None"

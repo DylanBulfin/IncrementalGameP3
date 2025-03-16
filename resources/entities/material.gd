@@ -17,10 +17,13 @@ var id: int
 @export var input_material2_id: int = -1
 @export var input_material2_count: float = 0
 
-@export var facility_multiplier = 100.0
+@export var base_facility_multiplier: float = 100.0
 
 var time_cost: float:
 	get: return base_time_cost / State.cspeed
+
+var facility_multiplier: float:
+	get: return base_facility_multiplier ** count
 
 func to_dict() -> Dictionary:
 	# Count is the only non-derived field that can change during the game

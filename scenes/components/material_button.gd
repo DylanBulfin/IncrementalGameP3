@@ -5,20 +5,16 @@ var base: CMaterial
 func init(base_material: CMaterial) -> void:
 	base = base_material
 	State.bank_changed.connect(_on_bank_changed)
-	State.cspeed_changed.connect(_on_cspeed_changed)
 	base.material_changed.connect(_on_material_changed)
 	
 	# Connect to the crafting speed upgrade
-	var cspeed_upgrade = State.upgrades[Upgrade.UpgradeType.CraftingSpeed as int]
+	var cspeed_upgrade: Upgrade = State.upgrades[Upgrade.UpgradeType.CraftingSpeed as int]
 	cspeed_upgrade.upgrade_changed.connect(_on_cspeed_upgrade_changed)
 	
 	update()
 	
 func _on_bank_changed(_bank: float) -> void:
 	update(false)
-
-func _on_cspeed_changed(_speed: float) -> void:
-	update()
 
 func _on_material_changed(_mat: CMaterial) -> void:
 	update()

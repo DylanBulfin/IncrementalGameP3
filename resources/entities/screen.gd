@@ -8,8 +8,8 @@ var id: int
 
 static var scenes: Array[PackedScene] = [
 	preload("res://scenes/screens/facility_screen.tscn"),
-	preload("res://scenes/screens/upgrade_screen.tscn"),
 	preload("res://scenes/screens/crafting_screen.tscn"),
+	preload("res://scenes/screens/upgrade_screen.tscn"),
 	preload("res://scenes/screens/dummy_screen.tscn"),
 	preload("res://scenes/screens/dummy_screen.tscn"),
 	

@@ -39,7 +39,7 @@ var upgrades_multi: float:
 var materials_multi: float:
 	get: return output_material_types\
 		.map(func(m: int) -> float: return State.materials[m].facility_multiplier)\
-		.reduce(func(acc: float, next: float) -> float: return acc * next)\
+		.reduce(func(acc: float, next: float) -> float: return acc + next)\
 		if len(output_material_types) > 0 else 1.0
 
 var cost_count_multi: float:

@@ -2,7 +2,7 @@ extends Node
 
 
 # Global non-Resource variables, signals, and helpers
-var bank: float = 1e100
+var bank: float = 1e7
 signal bank_changed(bank: float)
 func try_debit_bank(amount: float) -> bool:
 	if bank >= amount:
@@ -19,12 +19,9 @@ func init_bank(amount: float) -> void:
 
 var base_cspeed: float = 1.0
 var cspeed_upgrade_multiplier: float:
-	get:
-		var cspeed_upgrade = upgrades[Upgrade.UpgradeType.CraftingSpeed as int]
-		return cspeed_upgrade.multiplier
+	get: return upgrades[Upgrade.UpgradeType.CraftingSpeed as int].multiplier
 var cspeed: float:
 	get: return base_cspeed * cspeed_upgrade_multiplier
-signal cspeed_changed(cspeed: float)
 
 var screens: Array[Screen]
 var on_normal_screen: bool = true
@@ -44,14 +41,12 @@ func add_upgrade_count(id: int, count: int) -> void:
 
 var materials: Array[CMaterial]
 func can_afford_material(material: CMaterial, n: float = 1) -> bool:
-	var total_bank_cost = material.bank_cost * n
-	
 	var res: bool = State.bank >= material.bank_cost * n
 	
 	if material.input_material1_id != -1:
 		res = res and State.materials[material.input_material1_id].count \
 			>= material.input_material1_count * n
-	if material.input_material2_id == -1:
+	if material.input_material2_id != -1:
 		res = res and State.materials[material.input_material2_id].count \
 			>= material.input_material2_count * n
 	
@@ -122,9 +117,9 @@ var wait_signals: Array[bool] = []
 
 func register_wait_signal(sig: Signal) -> void:
 	# Add a signal which the global script will wait for before saving and exiting
-	var index = len(wait_signals)
+	var index: int = len(wait_signals)
 	wait_signals.append(false)
-	sig.connect(func(): wait_signals[index] = true)
+	sig.connect(func() -> void: wait_signals[index] = true)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

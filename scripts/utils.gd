@@ -19,14 +19,18 @@ func format(num: float) -> String:
 		var dec_str: String = fstr % dec
 		
 		# Floating point arithmetic is gross
-		if dec_str[0] == '0':
-			# Less than 1, adjust
-			power -= 1
-			dec *= 10
 		if len(dec_str) == 5:
 			# Greater than 10, adjust
 			power += 1
 			dec /= 10
+		
+		# Update
+		dec_str = fstr % dec
+			
+		if dec_str[0] == '0':
+			# Less than 1, adjust
+			power -= 1
+			dec *= 10
 		
 		# Update
 		dec_str = fstr % dec

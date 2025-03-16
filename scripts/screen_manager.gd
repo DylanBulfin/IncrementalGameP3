@@ -50,7 +50,6 @@ func switch_to_screen(id: int) -> void:
 		screen_nodes[id].visible = true
 		
 		curr_screen = id
-	
 	close_side_menu()
 
 func get_current_screen() -> Screen:
