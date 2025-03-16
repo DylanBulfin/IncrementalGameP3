@@ -14,7 +14,7 @@ func save_file(path: String) -> void:
 	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
 	
 	var dict: Dictionary = {
-		"bank": State.bank
+		"bank": State.bank,
 	}
 	for collection_name: String in collections_to_save:
 		dict[collection_name] = State[collection_name].map(func(d: Resource) -> Dictionary: return d.to_dict())

@@ -44,4 +44,6 @@ size_flags_vertical = 3
 
 [node name="PopupText" type="Label" parent="VBoxContainer/PoputTextContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+autowrap_mode = 2

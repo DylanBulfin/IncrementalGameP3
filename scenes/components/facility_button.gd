@@ -13,7 +13,7 @@ func _on_facility_changed(fac: Facility) -> void:
 	if base == fac:
 		update()
 
-func _on_bank_change(bank: float) -> void:
+func _on_bank_change(_bank: float) -> void:
 	update(false)
 
 func _on_buy_count_changed(new_buy_count: int) -> void:
@@ -24,8 +24,8 @@ func _on_upgrade_changed(upgrade: Upgrade) -> void:
 	or upgrade.type in base.output_upgrade_types:
 		update()
 
-func update(update_text = true):
-	if update_text: update_text()
+func update(should_update_text: bool = true) -> void:
+	if should_update_text: update_text()
 	update_disabled()
 
 func update_text() -> void:

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://drxjeudfqrkte"]
+
+[ext_resource type="Script" uid="uid://c5d13o2jfyft5" path="res://scenes/components/material_button.gd" id="1_333dh"]
+
+[node name="MaterialButton" type="Button"]
+custom_minimum_size = Vector2(350, 300)
+script = ExtResource("1_333dh")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MaterialLabel" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2

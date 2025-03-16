@@ -15,8 +15,8 @@ func _on_upgrade_changed(upg: Upgrade) -> void:
 func _on_bank_changed(_bank: float) -> void:
 	update(false)
 
-func update(update_text = true) -> void:
-	if update_text: update_text()
+func update(should_update_text: bool = true) -> void:
+	if should_update_text: update_text()
 	update_disabled()
 
 func update_text() -> void:

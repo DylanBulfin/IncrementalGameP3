@@ -35,27 +35,31 @@ func _ready() -> void:
 		upgrade_nodes.append(node)
 		%UpgradesContainer.add_child(node)
 	
-	update_disabled_all()
 	activate_category(curr_category)
 	
 	category_group.pressed.connect(_on_category_pressed)
 	upgrades_group.pressed.connect(_on_upgrade_pressed)
-	State.bank_changed.connect(_on_bank_changed)
+	%BuyAllButton.pressed.connect(_on_buy_all_pressed)
+	
+	upgrades_group.allow_unpress = true
 
+func _on_buy_all_pressed() -> void:
+	buy_all()
 
 func _on_category_pressed(button: BaseButton) -> void:
 	var category: int = Upgrade.UpgradeCategory[button.text]
 	switch_to_category(category)
 
 func _on_upgrade_pressed(button: BaseButton) -> void:
-	if State.try_debit_bank(button.base.cost):
-		State.add_upgrade_count(button.base.id, 1)
-		update_disabled(button.base.id)
-	
+	try_buy(button.base)
 	button.set_pressed_no_signal(false)
 
-func _on_bank_changed(_bank: float) -> void:
-	update_disabled_all()
+func try_buy(upgrade: Upgrade, n: int = 1) -> bool:
+	if State.try_debit_bank(upgrade.cost):
+		State.add_upgrade_count(upgrade.id, n)
+		return true
+	return false
+	
 
 func switch_to_category(new_category: int) -> void:
 	if new_category == curr_category: 
@@ -68,10 +72,6 @@ func activate_category(category: int) -> void:
 	for node: Button in upgrade_nodes:
 		node.visible = node.base.category as int == category
 
-func update_disabled(id: int) -> void:
-	var node: Button = upgrade_nodes[id]
-	node.disabled = State.bank < node.base.cost
-
-func update_disabled_all() -> void:
-	for node: Button in upgrade_nodes:
-		node.disabled = State.bank < node.base.cost
+func buy_all() -> void:
+	for upgrade: Upgrade in State.upgrades:
+		while try_buy(upgrade): pass

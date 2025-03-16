@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameData" load_steps=30 format=3 uid="uid://hd4ps85k4fx5"]
+[gd_resource type="Resource" script_class="GameData" load_steps=31 format=3 uid="uid://hd4ps85k4fx5"]
 
 [ext_resource type="Script" uid="uid://bskj18fydavuw" path="res://resources/entities/facility.gd" id="1_yqm58"]
 [ext_resource type="Script" uid="uid://quo18bf08mye" path="res://resources/entities/material.gd" id="2_rolb0"]
@@ -110,18 +110,30 @@ output_upgrade_types = Array[int]([8, 7])
 cost_upgrade_types = Array[int]([9])
 metadata/_custom_type_script = "uid://bskj18fydavuw"
 
+[sub_resource type="Resource" id="Resource_qlxfl"]
+script = ExtResource("2_rolb0")
+title = "Gear"
+bank_cost = 1.0
+base_time_cost = 1.0
+count = 0.0
+input_material1_id = -1
+input_material2_id = -1
+input_material1_count = 0.0
+input_material2_count = 0.0
+metadata/_custom_type_script = "uid://quo18bf08mye"
+
 [sub_resource type="Resource" id="Resource_j2wbb"]
 script = ExtResource("3_rolb0")
 title = "Facilities"
 help_title = "Facilities Help"
-help_content = "The Facilities menu"
+help_content = "The Facilities screen allows you to buy and upgrade your facilities. Each facility will gain a small bonus for each 10 you buy, and a larger bonus for each 100. The Facilties are the primary way to increase your bank."
 metadata/_custom_type_script = "uid://dvq252w1v2qpw"
 
 [sub_resource type="Resource" id="Resource_63f53"]
 script = ExtResource("3_rolb0")
-title = "Upgrades"
-help_title = ""
-help_content = ""
+title = "Upgradess"
+help_title = "Upgrades Help"
+help_content = "Upgrades provide a bonus to some aspect of the game. For example, the Facility1 upgrade multiplies the Wood facility output by 2 per level. If you have a lot of available upgrades you can make use of the Buy All button, but be warned it will attempt to buy upgrades from all categories, not just the currently selected one"
 metadata/_custom_type_script = "uid://dvq252w1v2qpw"
 
 [sub_resource type="Resource" id="Resource_obpou"]
@@ -261,7 +273,7 @@ metadata/_custom_type_script = "uid://cuvkauqs58q0v"
 [resource]
 script = ExtResource("3_raoho")
 facilities = Array[ExtResource("1_yqm58")]([SubResource("Resource_rolb0"), SubResource("Resource_yqm58"), SubResource("Resource_raoho"), SubResource("Resource_2r4qd"), SubResource("Resource_4oi1i"), SubResource("Resource_e1k00"), SubResource("Resource_vt7lq"), SubResource("Resource_ws21c")])
-materials = Array[ExtResource("2_rolb0")]([])
+materials = Array[ExtResource("2_rolb0")]([SubResource("Resource_qlxfl")])
 upgrades = Array[ExtResource("4_2r4qd")]([SubResource("Resource_iqldt"), SubResource("Resource_rbntb"), SubResource("Resource_l1y71"), SubResource("Resource_d421p"), SubResource("Resource_7ruvp"), SubResource("Resource_5pkvu"), SubResource("Resource_pio6x"), SubResource("Resource_2rm8q"), SubResource("Resource_bdmhm"), SubResource("Resource_ebnl3"), SubResource("Resource_sdou3"), SubResource("Resource_4b1nl")])
 screens = Array[ExtResource("3_rolb0")]([SubResource("Resource_j2wbb"), SubResource("Resource_63f53"), SubResource("Resource_obpou"), SubResource("Resource_5qh7m")])
 metadata/_custom_type_script = "uid://b3526uyrv3j5s"
