@@ -13,33 +13,27 @@ func format(num: float) -> String:
 		else:
 			return num_str
 	else:
-		var power: float = floor(log(abs(num)) / log(10))
-		var dec: float = num / (10 ** power)
+		var power: int = floor(log(abs(num)) / log(10))
+		var dec_hundredths: int = floor((num / (10.0 ** power as float)) * 100)
 		
-		var dec_str: String = fstr % dec
-		
-		# Floating point arithmetic is gross
-		if len(dec_str) == 5:
-			# Greater than 10, adjust
-			power += 1
-			dec /= 10
-		
-		# Update
-		dec_str = fstr % dec
-			
-		if dec_str[0] == '0':
-			# Less than 1, adjust
+		# Should be in the range [100, 1000)
+		if dec_hundredths < 100:
+			dec_hundredths *= 10
 			power -= 1
-			dec *= 10
+		if dec_hundredths >= 1000:
+			dec_hundredths /= 10
+			power += 1
+			
+		if dec_hundredths >= 1000 or dec_hundredths < 100: breakpoint
 		
-		# Update
-		dec_str = fstr % dec
+		var pre_decimal: int = dec_hundredths / 100
+		var post_decimal: int = dec_hundredths % 100
 		
-		if dec_str.substr(len(dec_str) - 2) == "00":
-			# Show as integer
-			return str("%d" % dec, "e%d" % power)
+		if post_decimal == 0:
+			# No useful post-decimal info, print as int
+			return str("%de%d" % [pre_decimal, power])
 		else:
-			return str(dec_str, "e%d" % power)
+			return str("%d.%de%d" % [pre_decimal, post_decimal, power])
 
 func get_total_cost(cost: float, cost_ratio: float, count: int) -> float:
 	return cost * ((cost_ratio ** count) - 1) / (cost_ratio - 1)

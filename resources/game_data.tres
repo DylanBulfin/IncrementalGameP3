@@ -180,7 +180,7 @@ metadata/_custom_type_script = "uid://dvq252w1v2qpw"
 
 [sub_resource type="Resource" id="Resource_iqldt"]
 script = ExtResource("4_2r4qd")
-title = "Wood Output"
+title = "Dirt Output"
 base_cost = 10000.0
 type = 0
 count = 0
